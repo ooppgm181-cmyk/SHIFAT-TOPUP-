@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHIFAT TOPUP — Admin Dashboard</title>
+<style>
+:root{--bg:#080d1a;--panel:#111a30;--panel2:#172441;--line:#29395b;--text:#f4f7ff;--muted:#9eaccb;--purple:#8b5cf6;--cyan:#22d3ee;--green:#34d399;--yellow:#fbbf24;--red:#fb7185}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top left,#1a2450 0,#080d1a 55%);font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif;color:var(--text)}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:11px;padding:10px 13px;font-weight:750}.app{max-width:1200px;margin:auto;padding:16px}.header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:8px 0 20px}.brand{display:flex;gap:11px;align-items:center;font-weight:900;font-size:20px}.logo{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--purple));color:#091020}.sub{font-size:12px;color:var(--muted);font-weight:500}.btn{background:linear-gradient(110deg,var(--purple),#5667ff);color:white}.soft{background:#202d4d;color:#e8efff;border:1px solid var(--line)}.danger{background:#542638;color:#ffe4ea}.success{background:#124a3a;color:#d1fae5}.warning{color:var(--yellow)}.layout{display:grid;grid-template-columns:210px 1fr;gap:16px}.sidebar,.panel,.stat{border:1px solid var(--line);background:linear-gradient(150deg,#121c34ee,#0e1527ee);border-radius:18px}.sidebar{padding:12px;height:max-content;position:sticky;top:12px}.sidebtn{display:block;text-align:left;width:100%;margin:4px 0;background:transparent;color:#c7d2ee}.sidebtn.active,.sidebtn:hover{background:#26345a;color:white}.main{min-width:0}.welcome{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}.welcome h1{font-size:25px;margin:0 0 4px}.muted{color:var(--muted);font-size:13px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:16px}.stat{padding:15px}.stat .label{font-size:12px;color:var(--muted)}.stat .num{font-size:25px;font-weight:900;margin-top:7px}.panel{padding:17px;margin-bottom:15px}.panel h2{font-size:18px;margin:0 0 12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.toolbar input,.toolbar select{max-width:260px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}.field label{font-size:12px;color:var(--muted)}input,select,textarea{width:100%;padding:11px 12px;background:#091225;color:white;border:1px solid var(--line);border-radius:10px;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--cyan)}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:650px}th,td{text-align:left;padding:11px 9px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:top}th{color:#b9c7e8;font-weight:700;background:#101a30}.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#253451;font-size:11px}.pending{color:var(--yellow)}.approved{color:var(--green)}.rejected{color:var(--red)}.actions{display:flex;gap:6px;flex-wrap:wrap}.actions button{padding:7px 9px;font-size:12px}.hidden{display:none!important}.notice{background:#101c34;border:1px solid var(--line);border-radius:12px;padding:12px;color:#dbe6ff;margin-bottom:12px}.loginwrap{max-width:420px;margin:9vh auto;padding:18px}.loginwrap .panel{padding:24px}.error{color:var(--red);font-size:13px;margin-top:8px}.tip{font-size:12px;line-height:1.6;color:var(--yellow);margin-top:12px}.empty{text-align:center;color:var(--muted);padding:28px}.section-title{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.sidebar{position:static;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.sidebtn{text-align:center;font-size:12px;padding:10px 5px}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:480px){.app{padding:10px}.grid2{grid-template-columns:1fr}.welcome h1{font-size:21px}.stat .num{font-size:21px}.panel{padding:13px}}
+</style>
+</head>
+<body>
+<div id="loginScreen" class="loginwrap">
+  <div class="brand" style="justify-content:center;margin-bottom:16px"><div class="logo">ST</div><div>SHIFAT <span style="color:var(--cyan)">TOPUP</span><div class="sub">ADMIN CONTROL CENTER</div></div></div>
+  <div class="panel">
+    <h2 style="margin-top:0">🔐 Admin Login</h2>
+    <p class="muted">ডেমো প্যানেলে প্রবেশ করতে PIN দিন।</p>
+    <form id="loginForm"><div class="field"><label>Admin PIN</label><input id="pin" type="password" inputmode="numeric" required placeholder="PIN লিখুন"></div><button class="btn" style="width:100%">লগইন করুন</button></form>
+    <div id="loginError" class="error"></div>
+    <div class="tip">ডেমো PIN: <b>1234</b>। এটি প্রকৃত নিরাপত্তা নয়—লাইভ ব্যবসায় ব্যবহার করবেন না।</div>
+    <p class="muted"><a href="index.html" style="color:var(--cyan)">← মূল ওয়েবসাইটে ফিরে যান</a></p>
+  </div>
+</div>
+<div id="dashboard" class="app hidden">
+<header class="header"><div class="brand"><div class="logo">ST</div><div>SHIFAT <span style="color:var(--cyan)">TOPUP</span><div class="sub">ADMIN CONTROL CENTER</div></div></div><div class="actions"><button class="soft" onclick="refreshAll()">↻ Refresh</button><button class="danger" onclick="logout()">Logout</button></div></header>
+<div class="layout">
+<aside class="sidebar">
+<button class="sidebtn active" data-tab="overview" onclick="tab('overview',this)">📊 Overview</button>
+<button class="sidebtn" data-tab="orders" onclick="tab('orders',this)">📦 Orders</button>
+<button class="sidebtn" data-tab="packages" onclick="tab('packages',this)">💎 Packages</button>
+<button class="sidebtn" data-tab="settings" onclick="tab('settings',this)">⚙️ Site Settings</button>
+<button class="sidebtn" data-tab="payments" onclick="tab('payments',this)">💳 Payment Info</button>
+<button class="sidebtn" data-tab="help" onclick="tab('help',this)">🛡️ Security</button>
+</aside>
+<main class="main">
+<section id="tab-overview">
+<div class="welcome"><div><h1>Dashboard</h1><div class="muted">তোমার SHIFAT TOPUP-এর সারাংশ</div></div><span class="pill">LOCAL DEMO</span></div>
+<div class="stats"><div class="stat"><div class="label">মোট অর্ডার</div><div class="num" id="statTotal">0</div></div><div class="stat"><div class="label">Pending</div><div class="num warning" id="statPending">0</div></div><div class="stat"><div class="label">Approved</div><div class="num" id="statApproved">0</div></div><div class="stat"><div class="label">Rejected</div><div class="num" id="statRejected">0</div></div></div>
+<div class="panel"><div class="section-title"><h2>সাম্প্রতিক অর্ডার</h2><button class="soft" onclick="tab('orders',document.querySelector('[data-tab=orders]'))">সব অর্ডার দেখুন</button></div><div id="recentOrders"></div></div>
+<div class="notice">ℹ️ এই প্যানেলটি মূল ওয়েবসাইটের সঙ্গে একই ডোমেইনে প্রকাশ করলে একই LocalStorage ব্যবহার করতে পারবে। ডেমো ডেটা অন্য ডিভাইসে নিজে থেকে যাবে না।</div>
+</section>
+<section id="tab-orders" class="hidden">
+<div class="welcome"><div><h1>Order Management</h1><div class="muted">অর্ডার খুঁজুন, যাচাই করুন এবং স্ট্যাটাস পরিবর্তন করুন</div></div></div>
+<div class="panel"><div class="toolbar"><input id="orderSearch" placeholder="Order ID / UID / নাম খুঁজুন" oninput="renderOrders()"><select id="orderFilter" onchange="renderOrders()"><option value="all">সব স্ট্যাটাস</option><option>Pending</option><option>Approved</option><option>Rejected</option></select><button class="soft" onclick="exportOrders()">CSV Export</button></div><div id="ordersTable"></div></div>
+</section>
+<section id="tab-packages" class="hidden">
+<div class="welcome"><div><h1>Package Management</h1><div class="muted">Diamond ও Membership-এর নাম এবং দাম বদলাও</div></div></div>
+<div class="panel"><div id="packageEditor"></div></div>
+</section>
+<section id="tab-settings" class="hidden">
+<div class="welcome"><div><h1>Site Settings</h1><div class="muted">হোমপেজের Notice Board আপডেট করো</div></div></div>
+<div class="panel"><h2>📢 Notice Board</h2><form id="noticeForm"><div class="field"><label>ওয়েবসাইটে দেখানো নোটিশ</label><textarea id="noticeText" rows="3" required></textarea></div><button class="btn">নোটিশ সেভ করো</button></form><div id="noticeMsg" class="muted"></div></div>
+</section>
+<section id="tab-payments" class="hidden">
+<div class="welcome"><div><h1>Payment Information</h1><div class="muted">বিকাশ, নগদ ও রকেট নম্বরের ডিসপ্লে সেটিং</div></div></div>
+<div class="panel"><div class="notice">⚠️ এখানে নম্বর শুধু প্রদর্শনের জন্য সংরক্ষিত হবে। এটি কোনো পেমেন্ট যাচাই করে না এবং টাকা গ্রহণও করে না।</div><form id="paymentForm"><div class="grid2"><div class="field"><label>bKash নম্বর</label><input id="bkash" inputmode="tel" placeholder="01XXXXXXXXX"></div><div class="field"><label>Nagad নম্বর</label><input id="nagad" inputmode="tel" placeholder="01XXXXXXXXX"></div><div class="field"><label>Rocket নম্বর</label><input id="rocket" inputmode="tel" placeholder="01XXXXXXXXX"></div><div class="field"><label>পেমেন্ট নির্দেশনা</label><input id="paymentNote" placeholder="যেমন: পেমেন্টের আগে নম্বর যাচাই করুন"></div></div><button class="btn">সেটিং সেভ করো</button></form><div id="paymentMsg" class="muted"></div></div>
+</section>
+<section id="tab-help" class="hidden">
+<div class="welcome"><div><h1>Security & Limitations</h1><div class="muted">লাইভ সাইট করার আগে পড়ুন</div></div></div>
+<div class="panel"><h2>🛡️ ডেমো প্যানেল নিরাপদ নয়</h2><ul class="muted" style="line-height:1.9"><li>PIN HTML/JavaScript-এর মধ্যে আছে; যে কেউ কোড দেখে বের করতে পারে।</li><li>LocalStorage ব্রাউজার-ভিত্তিক; একই ডেটা অন্য ফোনে দেখা যাবে না।</li><li>Approve বাটন শুধু ডেমো অর্ডারের স্ট্যাটাস বদলায়—টাকা বা Diamond পাঠায় না।</li><li>লাইভ ব্যবহারের জন্য Supabase/Firebase-এর মতো Database, সার্ভার-সাইড Admin Authentication, access rules ও audit logs দরকার।</li><li>API secret কখনো HTML/JavaScript-এ রাখবে না; Backend environment variable-এ রাখতে হবে।</li></ul><button class="soft" onclick="exportBackup()">ডেমো ডেটা JSON Backup</button> <button class="danger" onclick="clearDemoData()">সব ডেমো ডেটা মুছুন</button></div>
+</section>
+</main></div>
+</div>
+<script>
+const defaultPackages=[
+{id:'d100',name:'100 Diamonds',type:'diamond',price:85,emoji:'💎'},
+{id:'d210',name:'210 Diamonds',type:'diamond',price:165,emoji:'💎'},
+{id:'d530',name:'530 Diamonds',type:'diamond',price:410,emoji:'💎'},
+{id:'d1080',name:'1080 Diamonds',type:'diamond',price:810,emoji:'💎'},
+{id:'d2200',name:'2200 Diamonds',type:'diamond',price:1600,emoji:'💎'},
+{id:'mweekly',name:'Weekly Membership',type:'membership',price:155,emoji:'👑'},
+{id:'mmonthly',name:'Monthly Membership',type:'membership',price:740,emoji:'👑'}];
+const read=(k,f)=>{try{let x=localStorage.getItem(k);return x===null?f:JSON.parse(x)}catch{return f}};
+const write=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+let packages=read('st_packages',defaultPackages),orders=read('st_orders',[]),isLogged=false;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const statusClass=s=>s==='Approved'?'approved':s==='Rejected'?'rejected':'pending';
+function login(e){e.preventDefault();if(document.getElementById('pin').value==='1234'){isLogged=true;document.getElementById('loginScreen').classList.add('hidden');document.getElementById('dashboard').classList.remove('hidden');refreshAll()}else document.getElementById('loginError').textContent='PIN সঠিক নয়।'}
+document.getElementById('loginForm').addEventListener('submit',login);
+function logout(){isLogged=false;document.getElementById('dashboard').classList.add('hidden');document.getElementById('loginScreen').classList.remove('hidden');document.getElementById('pin').value=''}
+function tab(name,button){document.querySelectorAll('[id^="tab-"]').forEach(x=>x.classList.add('hidden'));document.getElementById('tab-'+name).classList.remove('hidden');document.querySelectorAll('.sidebtn').forEach(x=>x.classList.toggle('active',x.dataset.tab===name));if(name==='orders')renderOrders();if(name==='packages')renderPackages();if(name==='settings')document.getElementById('noticeText').value=localStorage.getItem('st_notice')||'SHIFAT TOPUP-এ স্বাগতম!';if(name==='payments')renderPayments()}
+function refreshAll(){packages=read('st_packages',defaultPackages);orders=read('st_orders',[]);document.getElementById('statTotal').textContent=orders.length;document.getElementById('statPending').textContent=orders.filter(o=>o.status==='Pending').length;document.getElementById('statApproved').textContent=orders.filter(o=>o.status==='Approved').length;document.getElementById('statRejected').textContent=orders.filter(o=>o.status==='Rejected').length;renderRecent();renderOrders();renderPackages();renderPayments()}
+function renderRecent(){const el=document.getElementById('recentOrders');const recent=orders.slice(0,5);el.innerHTML=recent.length?`<div class="tablewrap"><table><thead><tr><th>Order ID</th><th>Package</th><th>UID</th><th>Price</th><th>Status</th></tr></thead><tbody>${recent.map(o=>`<tr><td>${esc(o.id)}</td><td>${esc(o.packageName)}</td><td>${esc(o.uid)}</td><td>৳${Number(o.price)||0}</td><td><span class="pill ${statusClass(o.status)}">${esc(o.status)}</span></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">এখনও কোনো অর্ডার নেই</div>'}
+function renderOrders(){const q=(document.getElementById('orderSearch')?.value||'').toLowerCase(),f=document.getElementById('orderFilter')?.value||'all';const arr=orders.filter(o=>(f==='all'||o.status===f)&&[o.id,o.uid,o.packageName,o.phone].some(v=>String(v||'').toLowerCase().includes(q)));const el=document.getElementById('ordersTable');el.innerHTML=arr.length?`<div class="tablewrap"><table><thead><tr><th>Order</th><th>Package / Price</th><th>UID / Phone</th><th>Payment / TrxID</th><th>Status</th><th>Action</th></tr></thead><tbody>${arr.map(o=>`<tr><td><b>${esc(o.id)}</b><br><span class="muted">${esc(o.created||'')}</span></td><td>${esc(o.packageName)}<br><b>৳${Number(o.price)||0}</b></td><td>${esc(o.uid)}<br>${esc(o.phone||'—')}</td><td>${esc(o.payment||'—')}<br>${esc(o.trx||'TrxID নেই')}</td><td><span class="pill ${statusClass(o.status)}">${esc(o.status)}</span></td><td><div class="actions"><button class="success" onclick="setStatus('${esc(o.id)}','Approved')">Approve</button><button class="danger" onclick="setStatus('${esc(o.id)}','Rejected')">Reject</button><button class="soft" onclick="setStatus('${esc(o.id)}','Pending')">Pending</button></div></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">মিলেছে এমন কোনো অর্ডার নেই</div>'}
+function setStatus(id,status){orders=read('st_orders',[]);const o=orders.find(x=>x.id===id);if(!o)return;if(!confirm(`${id} অর্ডারের স্ট্যাটাস ${status} করবেন?`))return;o.status=status;write('st_orders',orders);refreshAll()}
+function renderPackages(){packages=read('st_packages',defaultPackages);document.getElementById('packageEditor').innerHTML=packages.map(p=>`<form class="panel" style="margin:0 0 10px;background:#0b1428" onsubmit="savePackage(event,'${p.id}')"><div class="grid2"><div class="field"><label>প্যাকেজের নাম</label><input id="pn-${p.id}" value="${esc(p.name)}" required></div><div class="field"><label>দাম (টাকা)</label><input id="pp-${p.id}" type="number" min="0" value="${Number(p.price)||0}" required></div></div><div class="actions"><button class="btn">সেভ করুন</button><span class="pill">${p.type==='diamond'?'Diamond':'Membership'}</span></div></form>`).join('')}
+function savePackage(e,id){e.preventDefault();packages=read('st_packages',defaultPackages);const p=packages.find(x=>x.id===id);if(!p)return;p.name=document.getElementById('pn-'+id).value.trim();p.price=Number(document.getElementById('pp-'+id).value);write('st_packages',packages);refreshAll();alert('প্যাকেজ আপডেট হয়েছে।')}
+document.getElementById('noticeForm').addEventListener('submit',e=>{e.preventDefault();localStorage.setItem('st_notice',document.getElementById('noticeText').value.trim());document.getElementById('noticeMsg').textContent='নোটিশ সেভ হয়েছে (এই ব্রাউজারের ডেমো ডেটা)।'});
+function renderPayments(){const p=read('st_payments',{bkash:'',nagad:'',rocket:'',note:''});document.getElementById('bkash').value=p.bkash||'';document.getElementById('nagad').value=p.nagad||'';document.getElementById('rocket').value=p.rocket||'';document.getElementById('paymentNote').value=p.note||''}
+document.getElementById('paymentForm').addEventListener('submit',e=>{e.preventDefault();write('st_payments',{bkash:document.getElementById('bkash').value.trim(),nagad:document.getElementById('nagad').value.trim(),rocket:document.getElementById('rocket').value.trim(),note:document.getElementById('paymentNote').value.trim()});document.getElementById('paymentMsg').textContent='পেমেন্ট ডিসপ্লে সেটিং সেভ হয়েছে (ডেমো)।'});
+function exportOrders(){const rows=[['Order ID','Package','Price','UID','Phone','Payment','TrxID','Status','Created'],...orders.map(o=>[o.id,o.packageName,o.price,o.uid,o.phone,o.payment,o.trx,o.status,o.created])];const csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');download('shifat-orders.csv','\ufeff'+csv,'text/csv;charset=utf-8;')}
+function exportBackup(){download('shifat-topup-backup.json',JSON.stringify({packages:read('st_packages',defaultPackages),orders:read('st_orders',[]),notice:localStorage.getItem('st_notice')||'',payments:read('st_payments',{})},null,2),'application/json')}
+function download(name,data,type){const a=document.createElement('a'),u=URL.createObjectURL(new Blob([data],{type}));a.href=u;a.download=name;a.click();URL.revokeObjectURL(u)}
+function clearDemoData(){if(!confirm('সব ডেমো অর্ডার, প্যাকেজ ও সেটিংস মুছে ফেলবেন?'))return;['st_orders','st_packages','st_notice','st_payments'].forEach(k=>localStorage.removeItem(k));packages=defaultPackages;orders=[];refreshAll();alert('ডেমো ডেটা মুছে ফেলা হয়েছে।')}
+</script>
+</body></html>

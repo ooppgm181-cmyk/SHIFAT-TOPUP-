@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHIFAT TOPUP | Free Fire Top-Up</title>
+<style>
+:root{--bg:#090d1b;--panel:#121a31;--panel2:#182342;--purple:#8b5cf6;--cyan:#22d3ee;--text:#f4f7ff;--muted:#aab5d0;--line:#293657;--green:#34d399;--red:#fb7185}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#17234a 0,#090d1b 52%);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif}button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 15px;font-weight:750}.wrap{max-width:1080px;margin:auto;padding:16px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 0 20px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:21px;letter-spacing:.5px}.logo{width:43px;height:43px;border-radius:14px;background:linear-gradient(135deg,var(--cyan),var(--purple));display:grid;place-items:center;color:#080d1c;font-weight:1000}.nav{display:flex;gap:8px;flex-wrap:wrap}.btn{background:linear-gradient(110deg,var(--purple),#5b6cff);color:white}.btn2{background:#202b4b;color:#eaf0ff;border:1px solid var(--line)}.hero{padding:28px 22px;border:1px solid #3b4374;border-radius:24px;background:linear-gradient(120deg,#211b51dd,#10243add);display:grid;grid-template-columns:1.4fr .6fr;gap:20px;align-items:center;box-shadow:0 20px 55px #0003}.eyebrow{color:var(--cyan);font-weight:800;font-size:12px;letter-spacing:2px}.hero h1{font-size:clamp(28px,5vw,48px);line-height:1.1;margin:10px 0}.hero p{color:var(--muted);max-width:560px}.hero-art{font-size:90px;text-align:center;filter:drop-shadow(0 10px 20px #8b5cf677)}.notice{margin:16px 0;padding:12px 15px;border-radius:14px;background:#19233d;border:1px solid var(--line);color:#dbe5ff}.section{margin:26px 0}.section h2{font-size:22px;margin:0 0 14px}.muted{color:var(--muted);font-size:14px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.card{background:linear-gradient(150deg,var(--panel),#0e1529);border:1px solid var(--line);border-radius:18px;padding:16px}.pack{display:flex;flex-direction:column;gap:10px}.pack .emoji{font-size:30px}.pack h3{margin:0}.price{font-size:22px;font-weight:900;color:var(--cyan)}.pack button{margin-top:4px;width:100%}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:13px;color:var(--muted)}input,select{width:100%;padding:12px;border-radius:11px;border:1px solid var(--line);background:#0b1224;color:white;outline:none}input:focus,select:focus{border-color:var(--cyan)}.hidden{display:none!important}.statusbox{padding:12px;background:#0c1428;border-radius:12px;margin-top:12px;overflow-wrap:anywhere}.pill{display:inline-block;border-radius:999px;padding:4px 9px;font-size:12px;background:#27334f}.pending{color:#fbbf24}.approved{color:var(--green)}.rejected{color:var(--red)}.adminbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.order{border:1px solid var(--line);padding:13px;border-radius:14px;margin-top:10px;background:#0d152a}.order-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.good{background:#14533f;color:#d1fae5}.bad{background:#5c2334;color:#ffe4e6}footer{text-align:center;padding:25px;color:var(--muted);font-size:13px}.warn{color:#fbbf24;font-size:13px;margin-top:12px}.toast{margin-top:10px;color:var(--green);font-weight:700}
+@media(max-width:720px){.hero{grid-template-columns:1fr}.hero-art{display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.wrap{padding:12px}.hero{padding:22px 17px}}
+@media(max-width:430px){.grid{grid-template-columns:1fr}.brand{font-size:18px}.nav button{padding:9px 11px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><div class="logo">ST</div><div>SHIFAT <span style="color:var(--cyan)">TOPUP</span><div class="muted" style="font-size:11px;letter-spacing:1.5px">DIAMONDS • MEMBERSHIP</div></div></div><nav class="nav"><button class="btn2" onclick="showPage('home')">হোম</button><button class="btn2" onclick="showPage('status')">অর্ডার স্ট্যাটাস</button><button class="btn2" onclick="showPage('admin')">Admin</button></nav></header>
+<main id="home">
+<section class="hero"><div><div class="eyebrow">FAST • EASY • GAMING</div><h1>আপনার গেমিং,<br><span style="color:var(--cyan)">আপনার টপ-আপ!</span></h1><p>SHIFAT TOPUP-এ Diamond ও Membership প্যাকেজ বেছে UID দিয়ে অর্ডার করুন। অর্ডারের অবস্থা Order Status থেকে দেখুন।</p><button class="btn" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">প্যাকেজ দেখুন ↓</button></div><div class="hero-art">💎⚡</div></section>
+<div class="notice"><b>📢 Notice Board:</b> <span id="noticeText">SHIFAT TOPUP-এ স্বাগতম! অর্ডার করার আগে Player UID ঠিক আছে কিনা যাচাই করুন।</span></div>
+<section class="section" id="packages"><h2>💎 Diamond প্যাকেজ</h2><div class="grid" id="diamondList"></div></section>
+<section class="section"><h2>👑 Membership প্যাকেজ</h2><div class="grid" id="membershipList"></div></section>
+<section class="section card" id="orderSection"><h2>🛒 অর্ডার করুন</h2><p class="muted">প্রথমে একটি প্যাকেজ বেছে নিন।</p><form id="orderForm" class="formgrid"><div class="field"><label>প্যাকেজ</label><select id="packageSelect" required><option value="">প্যাকেজ নির্বাচন করুন</option></select></div><div class="field"><label>Free Fire Player UID</label><input id="uid" required inputmode="numeric" placeholder="আপনার Player UID"></div><div class="field"><label>যোগাযোগের নম্বর (ঐচ্ছিক)</label><input id="phone" inputmode="tel" placeholder="01XXXXXXXXX"></div><div class="field"><label>পেমেন্ট পদ্ধতি</label><select id="payment"><option>bKash</option><option>Nagad</option><option>Rocket</option></select></div><div class="field full"><label>Transaction ID (পেমেন্ট করে থাকলে; ডেমোতে যাচাই হয় না)</label><input id="trx" placeholder="Transaction ID"></div><div class="field full"><button class="btn" type="submit">অর্ডার সাবমিট করুন</button></div></form><div id="orderResult" class="statusbox hidden"></div><p class="warn">⚠️ ডেমো: এখানে বাস্তব পেমেন্ট নেওয়া বা Diamond পাঠানো হয় না। কাউকে টাকা পাঠানোর আগে বিক্রেতা ও পেমেন্টের সত্যতা যাচাই করুন।</p></section>
+</main>
+<section id="statusPage" class="section card hidden"><h2>📦 অর্ডার স্ট্যাটাস</h2><p class="muted">আপনার Order ID লিখুন।</p><form id="statusForm" class="formgrid"><div class="field"><label>Order ID</label><input id="statusId" required placeholder="যেমন ST123456"></div><div class="field" style="justify-content:end"><button class="btn" type="submit">স্ট্যাটাস দেখুন</button></div></form><div id="statusResult" class="statusbox hidden"></div></section>
+<section id="adminPage" class="section card hidden"><div class="adminbar"><div><h2 style="margin:0">🔐 Admin Panel</h2><p class="muted">ডেমো অ্যাডমিন কন্ট্রোল</p></div><button class="btn2" onclick="showPage('home')">সাইটে ফিরে যান</button></div><div id="adminLogin"><p class="muted">ডেমো পিন: <b>1234</b> (এটি নিরাপদ লগইন নয়; লাইভ সাইটে ব্যবহার করবেন না)।</p><form id="loginForm" class="formgrid"><div class="field"><label>Admin PIN</label><input id="adminPin" type="password" required placeholder="PIN দিন"></div><div class="field" style="justify-content:end"><button class="btn" type="submit">লগইন</button></div></form><div id="loginError" class="warn"></div></div><div id="adminDashboard" class="hidden"><div class="section"><h3>Notice Board পরিবর্তন</h3><form id="noticeForm" class="formgrid"><div class="field"><label>নতুন নোটিশ</label><input id="noticeInput" required></div><div class="field" style="justify-content:end"><button class="btn" type="submit">নোটিশ সেভ করুন</button></div></form></div><div class="section"><h3>প্যাকেজের দাম পরিবর্তন</h3><div id="priceEditor"></div></div><div class="section"><div class="adminbar"><h3>অর্ডার ম্যানেজমেন্ট</h3><button class="btn2" onclick="logout()">লগআউট</button></div><div id="adminOrders"></div></div><p class="warn">নিরাপত্তা: এই ডেমোর ডেটা একই ব্রাউজারের LocalStorage-এ থাকে। আসল ব্যবসার জন্য সার্ভার, ডেটাবেস, সুরক্ষিত Admin Auth ও অনুমোদিত পেমেন্ট/API লাগবে।</p></div></section>
+<footer>© <span id="year"></span> SHIFAT TOPUP • Fan-made demo, not affiliated with Garena.</footer>
+</div>
+<script>
+const defaults=[
+{id:'d100',name:'100 Diamonds',type:'diamond',price:85,emoji:'💎'},
+{id:'d210',name:'210 Diamonds',type:'diamond',price:165,emoji:'💎'},
+{id:'d530',name:'530 Diamonds',type:'diamond',price:410,emoji:'💎'},
+{id:'d1080',name:'1080 Diamonds',type:'diamond',price:810,emoji:'💎'},
+{id:'d2200',name:'2200 Diamonds',type:'diamond',price:1600,emoji:'💎'},
+{id:'mweekly',name:'Weekly Membership',type:'membership',price:155,emoji:'👑'},
+{id:'mmonthly',name:'Monthly Membership',type:'membership',price:740,emoji:'👑'}
+];
+const get=(k,f)=>{try{return JSON.parse(localStorage.getItem(k))??f}catch{return f}};
+let packages=get('st_packages',defaults),orders=get('st_orders',[]),admin=false;
+const save=()=>{localStorage.setItem('st_packages',JSON.stringify(packages));localStorage.setItem('st_orders',JSON.stringify(orders))};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function renderPackages(){
+ for(const type of ['diamond','membership']){
+  const list=document.getElementById(type==='diamond'?'diamondList':'membershipList');
+  list.innerHTML=packages.filter(p=>p.type===type).map(p=>`<article class="card pack"><div class="emoji">${p.emoji}</div><h3>${esc(p.name)}</h3><div class="price">৳${Number(p.price).toLocaleString('en-BD')}</div><div class="muted">${type==='diamond'?'Free Fire Diamonds':'Membership package'}</div><button class="btn" onclick="choosePackage('${p.id}')">এখনই অর্ডার</button></article>`).join('')||'<p class="muted">কোনো প্যাকেজ নেই।</p>';
+ }
+ document.getElementById('packageSelect').innerHTML='<option value="">প্যাকেজ নির্বাচন করুন</option>'+packages.map(p=>`<option value="${p.id}">${esc(p.name)} — ৳${Number(p.price).toLocaleString('en-BD')}</option>`).join('');
+}
+function choosePackage(id){document.getElementById('packageSelect').value=id;document.getElementById('orderSection').scrollIntoView({behavior:'smooth'})}
+function showPage(page){
+ document.getElementById('home').classList.toggle('hidden',page!=='home');
+ document.getElementById('statusPage').classList.toggle('hidden',page!=='status');
+ document.getElementById('adminPage').classList.toggle('hidden',page!=='admin');
+ if(page==='admin'&&admin)renderAdmin();
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+document.getElementById('orderForm').addEventListener('submit',e=>{
+ e.preventDefault();const p=packages.find(x=>x.id===document.getElementById('packageSelect').value);
+ if(!p){alert('একটি প্যাকেজ নির্বাচন করুন');return}
+ const order={id:'ST'+Math.floor(100000+Math.random()*900000),packageId:p.id,packageName:p.name,price:Number(p.price),uid:document.getElementById('uid').value.trim(),phone:document.getElementById('phone').value.trim(),payment:document.getElementById('payment').value,trx:document.getElementById('trx').value.trim(),status:'Pending',created:new Date().toLocaleString('bn-BD')};
+ orders.unshift(order);save();const box=document.getElementById('orderResult');box.classList.remove('hidden');box.innerHTML=`অর্ডার ডেমো হিসেবে তৈরি হয়েছে।<br>Order ID: <b>${order.id}</b><br>প্যাকেজ: ${esc(order.packageName)} • ৳${order.price}<br>স্ট্যাটাস: <span class="pending">Pending</span><br><button class="btn2" onclick="document.getElementById('statusId').value='${order.id}';showPage('status')">স্ট্যাটাস দেখুন</button>`;
+ e.target.reset();
+});
+document.getElementById('statusForm').addEventListener('submit',e=>{
+ e.preventDefault();const id=document.getElementById('statusId').value.trim().toUpperCase(),o=orders.find(x=>x.id===id),box=document.getElementById('statusResult');box.classList.remove('hidden');
+ box.innerHTML=o?`<b>${esc(o.id)}</b><br>প্যাকেজ: ${esc(o.packageName)}<br>Player UID: ${esc(o.uid)}<br>মূল্য: ৳${Number(o.price).toLocaleString('en-BD')}<br>স্ট্যাটাস: <span class="${o.status==='Approved'?'approved':o.status==='Rejected'?'rejected':'pending'}">${esc(o.status)}</span><br><span class="muted">তৈরি: ${esc(o.created)}</span>`:'এই Order ID পাওয়া যায়নি।';
+});
+document.getElementById('loginForm').addEventListener('submit',e=>{e.preventDefault();if(document.getElementById('adminPin').value==='1234'){admin=true;document.getElementById('adminLogin').classList.add('hidden');document.getElementById('adminDashboard').classList.remove('hidden');renderAdmin()}else document.getElementById('loginError').textContent='PIN সঠিক নয়।'});
+function logout(){admin=false;document.getElementById('adminLogin').classList.remove('hidden');document.getElementById('adminDashboard').classList.add('hidden');document.getElementById('adminPin').value=''}
+document.getElementById('noticeForm').addEventListener('submit',e=>{e.preventDefault();localStorage.setItem('st_notice',document.getElementById('noticeInput').value);document.getElementById('noticeText').textContent=document.getElementById('noticeInput').value;alert('ডেমো নোটিশ সেভ হয়েছে');});
+function renderAdmin(){
+ document.getElementById('noticeInput').value=localStorage.getItem('st_notice')||document.getElementById('noticeText').textContent;
+ document.getElementById('priceEditor').innerHTML=packages.map(p=>`<form class="order" onsubmit="updatePrice(event,'${p.id}')"><b>${esc(p.name)}</b><div class="formgrid" style="margin-top:8px"><div class="field"><label>দাম (টাকা)</label><input id="price-${p.id}" type="number" min="0" value="${Number(p.price)}" required></div><div class="field" style="justify-content:end"><button class="btn2" type="submit">দাম সেভ</button></div></div></form>`).join('');
+ document.getElementById('adminOrders').innerHTML=orders.length?orders.map(o=>`<div class="order"><b>${esc(o.id)} — ${esc(o.packageName)}</b><br><span class="muted">UID: ${esc(o.uid)} • ৳${Number(o.price)} • ${esc(o.payment)} • ${esc(o.created)}</span><br>TrxID: ${esc(o.trx||'দেওয়া হয়নি')}<br>স্ট্যাটাস: <span class="${o.status==='Approved'?'approved':o.status==='Rejected'?'rejected':'pending'}">${esc(o.status)}</span><div class="order-actions"><button class="good" onclick="setStatus('${o.id}','Approved')">Approve</button><button class="bad" onclick="setStatus('${o.id}','Rejected')">Reject</button><button class="btn2" onclick="setStatus('${o.id}','Pending')">Pending</button></div></div>`).join(''):'<p class="muted">এখনও কোনো অর্ডার নেই।</p>';
+}
+function updatePrice(e,id){e.preventDefault();const p=packages.find(x=>x.id===id);p.price=Math.max(0,Number(document.getElementById('price-'+id).value));save();renderPackages();renderAdmin();alert('দাম আপডেট হয়েছে (এই ব্রাউজারে শুধু ডেমো)')}
+function setStatus(id,status){const o=orders.find(x=>x.id===id);if(o){o.status=status;save();renderAdmin()}}
+document.getElementById('noticeText').textContent=localStorage.getItem('st_notice')||document.getElementById('noticeText').textContent;
+document.getElementById('year').textContent=new Date().getFullYear();renderPackages();
+</script>
+</body></html>
